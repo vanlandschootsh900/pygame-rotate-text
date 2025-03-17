@@ -15,6 +15,23 @@ def init_game ():
     pygame.display.set_caption(config.TITLE)
     return screen
 
+
+
+def draw_text(screen, text, size, color ,x,y, font_name=None, bold=False, italic=False, rotation=0,):
+    pygame.font.init()
+    if font_name:
+        font= pygame.font.Font(font_name, size)
+    else:
+        font= pygame.font.Font(None, size)
+
+    text_surface = font.render(text, True, color)
+
+    if rotation !=0:
+        text_surface = pygame.transform.rotate(text_surface, rotation)
+    text_rect = text_surface.get_rect(center=(x,y))
+
+    screen.blit(text_surface, text_rect.topleft)
+
 def handle_events ():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -38,6 +55,7 @@ def main():
         
         # Add code to draw stuff (for example) below this comment
 
+        
 
 
 
