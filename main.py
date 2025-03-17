@@ -6,6 +6,7 @@ import pygame
 import sys
 import config # Import the config module
 
+
 def init_game ():
 
     pygame.init()
@@ -32,6 +33,8 @@ def draw_text(screen, text, size, color ,x,y, font_name=None, bold=False, italic
 
     screen.blit(text_surface, text_rect.topleft)
 
+
+
 def handle_events ():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -45,20 +48,27 @@ def main():
     
     screen = init_game()
     clock = pygame.time.Clock()
+    nums=0
 
-
+    
+        
     
     running = True
     while running:
         running = handle_events()
-        screen.fill(config.GRAY) # Use color from config
-        
+        screen.fill(config.WHITE) # Use color from config
+        nums+=1
         # Add code to draw stuff (for example) below this comment
-
         
 
+        font_name1='DejaVuSans.ttf'
+        text1 = 'Hello Shay'
+        font_size1 = 67
+        color1 = config.PURPLE
+       
 
 
+        draw_text(screen, text1, font_size1, color1, 350,300,font_name1, bold=True, rotation=nums)
 
 
 
